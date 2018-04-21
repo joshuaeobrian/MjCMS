@@ -20,7 +20,7 @@ export const ROLE_ROUTE =[
         action: "save"
     }, {
         method: "delete",
-        route: "/roles",
+        route: "/roles/:id",
         controller: RoleController,
         action: "remove"
     }

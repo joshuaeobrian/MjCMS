@@ -19,7 +19,7 @@ export const USER_ROUTES = [
         action: "save"
     }, {
         method: "delete",
-        route: "/users",
+        route: "/users/:id",
         controller: UserController,
         action: "disableUser"
     }

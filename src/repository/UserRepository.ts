@@ -1,8 +1,10 @@
 import {User} from "../entity/User";
 import {getRepository} from "typeorm";
+import {databaseConnection} from '../index';
 
 export class UserRepository {
-    private repository = getRepository(User);
+
+    private repository = getRepository(User,databaseConnection);
 
     /**
      *

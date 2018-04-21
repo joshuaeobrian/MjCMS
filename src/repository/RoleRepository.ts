@@ -1,10 +1,10 @@
 import {getRepository} from "typeorm";
 import {Role} from "../entity/Role";
-
+import {databaseConnection} from '../index';
 
 export default class RoleRepository{
 
-    private repository = getRepository(Role);
+    private repository = getRepository(Role,databaseConnection);
 
     async all(){
         return this.repository.find();

@@ -6,9 +6,10 @@ import {Request, Response} from "express";
 import {Routes} from "./routes";
 import {User} from "./entity/User";
 
-let database = (process.argv.length === 3)? process.argv[2]: "default";
-console.log("Starting Database Connection: ",database);
-createConnection(database).then(async connection => {
+export const databaseConnection = (process.argv.length === 3)? process.argv[2]: "default";
+console.log("Starting Database Connection: ",databaseConnection);
+createConnection(databaseConnection).then(async connection => {
+    console.log(await connection.name);
 
     // create express app
     const app = express();
@@ -32,7 +33,6 @@ createConnection(database).then(async connection => {
 
     // start express server
     app.listen(3000);
-
     // insert new users for test
     // await connection.manager.save(connection.manager.create(User, {
     //     firstName: "Timber",
