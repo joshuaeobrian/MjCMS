@@ -1,10 +1,10 @@
 {
-   "type": "postgres",
-   "host": "localhost",
-   "port": 5432,
-   "username": "postgres",
-   "password": "dowork247",
-   "database": "test",
+   "type": "mysql",
+   "host": "6.6.6.150",
+   "port": 3306,
+   "username": "mikew",
+   "password": "whome160$",
+   "database": "ang_cms",
    "synchronize": true,
    "logging": false,
    "entities": [
