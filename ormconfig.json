@@ -1,4 +1,29 @@
-{
+[{
+   "name":"default",
+   "type": "mysql",
+   "host": "6.6.6.150",
+   "port": 3306,
+   "username": "mikew",
+   "password": "whome160$",
+   "database": "ang_cms",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "src/entity/**/*.ts"
+   ],
+   "migrations": [
+      "src/migration/**/*.ts"
+   ],
+   "subscribers": [
+      "src/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/entity",
+      "migrationsDir": "src/migration",
+      "subscribersDir": "src/subscriber"
+   }
+},{
+   "name": "dev",
    "type": "mysql",
    "host": "127.0.0.1",
    "port": 3306,
@@ -21,4 +46,4 @@
       "migrationsDir": "src/migration",
       "subscribersDir": "src/subscriber"
    }
-}
+}]

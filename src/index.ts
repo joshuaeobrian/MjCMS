@@ -6,7 +6,9 @@ import {Request, Response} from "express";
 import {Routes} from "./routes";
 import {User} from "./entity/User";
 
-createConnection().then(async connection => {
+let database = (process.argv.length === 3)? process.argv[2]: "default";
+console.log("Starting Database Connection: ",database);
+createConnection(database).then(async connection => {
 
     // create express app
     const app = express();
