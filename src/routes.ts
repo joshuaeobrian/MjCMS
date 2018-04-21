@@ -19,5 +19,5 @@ export const Routes = [{
     method: "delete",
     route: "/users",
     controller: UserController,
-    action: "remove"
+    action: "disableUser"
 }];

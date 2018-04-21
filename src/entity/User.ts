@@ -13,19 +13,16 @@ export class User {
     @Column()
     lastName: string;
 
-    @Column()
-    age:number;
+    @Column({unique:true})
+    username:string;
 
-    // @Column({unique:true})
-    // username:string;
-    //
-    // @Column()
-    // password:string;
-    //
-    // @Column()
-    // email:string;
-    //
-    // @OneToOne(type => Role)
-    // @JoinColumn()
-    // role:Role;
+    @Column()
+    password:string;
+
+    @Column()
+    email:string;
+
+    @OneToOne(type => Role)
+    @JoinColumn()
+    role:Role;
 }
