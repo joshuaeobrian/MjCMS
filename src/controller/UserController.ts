@@ -5,7 +5,7 @@ import {UserRepository} from "../repository/UserRepository";
 
 export class UserController {
 
-    private repository:UserRepository;
+    private repository:UserRepository = new UserRepository();
 
     async all(request: Request, response: Response, next: NextFunction) {
         return this.repository.all();

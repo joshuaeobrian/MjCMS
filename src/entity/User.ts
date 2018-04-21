@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, ManyToOne} from "typeorm";
 import {Role} from "./Role";
 
 @Entity()
@@ -22,7 +22,7 @@ export class User {
     @Column()
     email:string;
 
-    @OneToOne(type => Role)
+    @ManyToOne(type => Role)
     @JoinColumn()
     role:Role;
 }

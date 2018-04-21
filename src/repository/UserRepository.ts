@@ -2,14 +2,14 @@ import {User} from "../entity/User";
 import {getRepository} from "typeorm";
 
 export class UserRepository {
-    private userRepository = getRepository(User);
+    private repository = getRepository(User);
 
     /**
      *
      * @returns {Promise<User[]>}
      */
     async all(){
-        return this.userRepository.find();
+        return this.repository.find({relations:['role']});
     }
 
     /**
@@ -18,8 +18,13 @@ export class UserRepository {
      * @returns {Promise<User | undefined>}
      */
     async findById(id:number){
-        return this.userRepository.findOne(id);
+
+         return this.repository.findOne(id,{
+             relations:['role']
+         });
     }
+
+
 
     /***
      *
@@ -27,7 +32,7 @@ export class UserRepository {
      * @returns {Promise<User>}
      */
     async save(user:User){
-        return this.userRepository.save(user);
+        return this.repository.save(user);
     }
 
     /**
@@ -36,7 +41,7 @@ export class UserRepository {
      * @returns {Promise<void>}
      */
     async disableUser(id:number){
-        await this.userRepository
+        await this.repository
             .createQueryBuilder()
             .update(User)
             .set({visible:false})
