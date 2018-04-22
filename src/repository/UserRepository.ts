@@ -1,6 +1,4 @@
 import {User} from "../entity/User";
-import {getRepository} from "typeorm";
-import {databaseConnection} from '../index';
 import Repository from "./Repository";
 
 export class UserRepository extends Repository<User>{
