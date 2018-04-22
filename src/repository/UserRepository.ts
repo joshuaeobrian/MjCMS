@@ -21,9 +21,9 @@ export class UserRepository {
      */
     async findById(id:number){
 
-         return this.repository.findOne(id,{
-             relations:['role']
-         });
+        return this.repository.findOne(id,{
+            relations:['role']
+        });
     }
 
 

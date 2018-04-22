@@ -3,7 +3,7 @@ import RoleRepository from "../repository/RoleRepository";
 
 
 export class RoleController {
-   private repository:RoleRepository = new RoleRepository();
+    private repository:RoleRepository = new RoleRepository();
 
     async all(request: Request, response: Response, next: NextFunction) {
         return this.repository.all();

@@ -22,7 +22,12 @@ export class User {
     @Column()
     email:string;
 
+    
+    @Column({default:true})
+    visible:boolean;
+
     @ManyToOne(type => Role)
     @JoinColumn()
     role:Role;
+
 }
