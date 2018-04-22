@@ -1,5 +1,6 @@
 import {NextFunction, Request, Response} from "express";
 import RoleRepository from "../repository/RoleRepository";
+import {Role} from "../entity/Role";
 
 
 export class RoleController {

@@ -1,10 +1,13 @@
 import {User} from "../entity/User";
 import {getRepository} from "typeorm";
 import {databaseConnection} from '../index';
+import Repository from "./Repository";
 
-export class UserRepository {
+export class UserRepository extends Repository<User>{
 
-    private repository = getRepository(User,databaseConnection);
+    constructor(){
+        super(User);
+    }
 
     /**
      *
@@ -20,23 +23,10 @@ export class UserRepository {
      * @returns {Promise<User | undefined>}
      */
     async findById(id:number){
-
         return this.repository.findOne(id,{
             relations:['role']
         });
     }
-
-
-
-    /***
-     *
-     * @param {User} user
-     * @returns {Promise<User>}
-     */
-    async save(user:User){
-        return this.repository.save(user);
-    }
-
     /**
      *
      * @param {number} id
