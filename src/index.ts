@@ -1,19 +1,25 @@
 import "reflect-metadata";
 import {createConnection} from "typeorm";
 import * as express from "express";
+import * as expressSession from "express-session";
 import * as bodyParser from "body-parser";
 import {Request, Response} from "express";
 import {Routes} from "./routes";
-import {User} from "./entity/User";
 
 export const databaseConnection = (process.argv.length === 3)? process.argv[2]: "default";
-console.log("Starting Database Connection: ",databaseConnection);
 createConnection(databaseConnection).then(async connection => {
     console.log(await connection.name);
 
     // create express app
     const app = express();
     app.use(bodyParser.json());
+
+    app.use(expressSession({
+        secret: `this is my secret`,
+        resave: false,
+        saveUninitialized: true,
+        // cookie: { cookie: { maxAge: 60000 },secure: true }
+    }));
 
     // register express routes from defined application routes
     Routes.forEach(route => {
@@ -34,17 +40,6 @@ createConnection(databaseConnection).then(async connection => {
     // start express server
     app.listen(3000);
     // insert new users for test
-    // await connection.manager.save(connection.manager.create(User, {
-    //     firstName: "Timber",
-    //     lastName: "Saw",
-    //     age: 27
-    // }));
-    // await connection.manager.save(connection.manager.create(User, {
-    //     firstName: "Phantom",
-    //     lastName: "Assassin",
-    //     age: 24
-    // }));
-
-    console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results");
+    console.log(`Express server has started on port 3000. Connection has been made to ${databaseConnection} environment.`);
 
 }).catch(error => console.log(error));
