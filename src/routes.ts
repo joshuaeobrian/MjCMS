@@ -1,7 +1,13 @@
 import {USER_ROUTES} from "./route/UserRoutes";
-import {ROLE_ROUTE} from "./route/RoleRoutes";
+import {ROLE_ROUTES} from "./route/RoleRoutes";
+import {METADATA_ROUTES} from "./route/MetaDataRoutes";
+import {SECTION_ROUTES} from "./route/SectionRoutes";
+import {PAGE_ROUTES} from "./route/PageRoutes";
 
 export const Routes = []
     .concat(USER_ROUTES)
-    .concat(ROLE_ROUTE);
+    .concat(ROLE_ROUTES)
+    .concat(METADATA_ROUTES)
+    .concat(SECTION_ROUTES)
+    .concat(PAGE_ROUTES);
 

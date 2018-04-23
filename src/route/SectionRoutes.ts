@@ -1,6 +1,6 @@
 import {SectionController} from "../controller/SectionController";
 
-export const SECTION_ROUTE = [
+export const SECTION_ROUTES = [
   {
     method: "get",
     route: "/sections",

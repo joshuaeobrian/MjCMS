@@ -1,8 +1,7 @@
-import {UserController} from "../controller/UserController";
 import {RoleController} from "../controller/RoleController";
 
 
-export const ROLE_ROUTE =[
+export const ROLE_ROUTES =[
     {
         method: "get",
         route: "/roles",

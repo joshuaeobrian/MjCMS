@@ -1,6 +1,6 @@
 import {MetaDataController} from "../controller/MetaDataController";
 
-export const METADATA_ROUTE =[
+export const METADATA_ROUTES =[
   {
     method: "get",
     route: "/metadata",
